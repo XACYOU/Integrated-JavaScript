@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+            margin: auto;
+        }
+        #top{
+            width: 30%;
+            display: flex;
+            justify-content:space-between;     
+            padding-top: 40px;
+            padding-bottom: 30px;       
+        }
+        #bottom{
+            width: 30%;
+            display: flex;
+            justify-content:center;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top">
+        <input type="number" id="first" placeholder="enter 1st Number">
+        <input type="number" id="second" placeholder="enter 2nd Number">    
+    </div>
+
+    <div id="bottom">
+        <button onclick=add()> Add </button>
+        <button onclick=subtract()> Subtract </button>
+        <button onclick=multiply()> Multiply </button>
+        <button onclick=divide()> Divide </button>
+    </div>
+</body>
+<script>
+
+
+function add() {
+    let First=+(document.getElementById("first").value);
+    let Second=+(document.getElementById("second").value);
+    let ans=First+Second;
+    alert(ans);
+}
+
+function subtract() {
+    let First=+(document.getElementById("first").value);
+    let Second=+(document.getElementById("second").value);
+    let ans=First-Second;
+    alert(ans);
+
+}
+
+function multiply() {
+    let First=+(document.getElementById("first").value);
+    let Second=+(document.getElementById("second").value);
+    let ans=First*Second;
+    alert(ans);
+
+}
+
+function divide() {
+    let First=+(document.getElementById("first").value);
+    let Second=+(document.getElementById("second").value);
+    let ans=First/Second;
+    alert(ans);
+
+}
+</script>
+</html>
