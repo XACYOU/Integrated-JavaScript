@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="display"> DISPLAY </h1>
+
+    <div id="numbers">
+        <button> 0 </button>
+        <button> 1 </button>
+        <button> 2 </button>
+        <button> 3 </button>
+        <button> 4 </button>
+        <button> 5 </button>
+        <button> 6 </button>
+        <button> 7 </button>
+        <button> 8 </button>
+        <button> 9 </button>
+    </div>
+<br>
+    <div id="operators">
+        <button> + </button>
+        <button> - </button>
+        <button> * </button>
+        <button> / </button>
+    </div>
+<br>
+    <button id="equal"> = </button>
+    <button id="clear"> C </button>
+</body>
+
+<script>
+
+let first="";
+let second="";
+let operators="";
+let flag=true;
+
+
+let keypad=document.querySelectorAll("#numbers > button");
+let display=document.getElementById("display");
+let operator=document.querySelectorAll("#operators > button");
+let result=document.getElementById("equal");
+let reset=document.getElementById("clear");
+
+for(let i=0; i<keypad.length; i++){
+    keypad[i].addEventListener("click", function(){
+
+        if(flag==true){
+            first+=keypad[i].innerText;
+            display.innerText=first;
+        }else{
+            second+=keypad[i].innerText;
+            display.innerText=second;
+            flag=true;
+        }
+
+    })
+}
+
+for(let i=0; i<operator.length;i++){
+    operator[i].addEventListener("click",function(){
+        operators=operator[i].innerText;
+        display.innerText=operators;
+        flag=false;
+    })
+}
+
+result.addEventListener("click",function(){
+
+    let cal=first+operators+second;
+    ans=eval(cal);
+
+    display.innerText=ans;
+    first="";
+    second="";
+    operators="";
+})
+
+reset.addEventListener("click",function(){
+    display.innerText="DISPLAY";
+    first="";
+    second="";
+    operators="";
+})
+
+
+</script>
+</html>
