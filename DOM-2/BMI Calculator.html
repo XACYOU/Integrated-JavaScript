@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Check your BMI </h1>
+    <p> Enter your weight and height below to check your BMI results </p>
+    <p> Put your weight in here (KG) </p>
+    <input type="number" id="hei" placeholder="weight in KG">
+    <br>
+    <p> Add your height in here (CM) </p>
+    <input type="number" id="wei" placeholder="height in CM">
+    <br>
+    <br>
+    <button> Calculate BMI </button>
+    <br>
+    <h2></h2>
+</body>
+
+<script>
+    // let h="";
+    // let w="";
+
+    let btn = document.querySelector('button');
+
+    btn.addEventListener('click', function(){
+
+        let height = document.getElementById('hei');
+        let weight = document.getElementById('wei');
+        let display = document.getElementsByTagName('button');
+
+        let h =height.value;
+        let w =weight.value;
+
+        let BMI=(w/(h*h))*10000;
+        console.log(BMI)
+    })
+
+</script>
+</html>
