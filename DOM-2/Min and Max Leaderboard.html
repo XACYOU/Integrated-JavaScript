@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            height: auto;
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            font-size: 25px;
+        }
+        #top-child{
+            height: auto;
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        #top-child > div{
+            display: flex;
+            flex-direction: column;
+        }
+        #points,#point{
+            height: 30px;
+            width: 50px;
+            padding: 20px;            
+        }
+        #points{
+            background-color: red;
+            border: 1px solid black;
+        }
+        #point{
+            background-color: green;
+            border: 1px solid black;
+        }
+        #middle-child{
+            padding: 20px;
+        }
+        #display{
+            border: 1px solid black;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 70px;
+            font-weight: 300;
+            background-color: rgb(155, 155, 155);
+        }
+        #bottom-child{
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        #bottom-child > div{
+            border: 1px solid black;
+            padding: 20px;
+            font-size: 40px;
+            background-color: orange;
+        }
+        #bottom-child > #empty{
+            border: 0px;
+            background-color: white;
+        }
+        #bottom-child > #green{
+            background-color: rgb(117, 173, 32) ;
+        }     
+        #bottom-child > div:last-child{
+            background-color: rgb(131, 24, 122);
+            color: whitesmoke;
+        }
+        #enter{
+            height: 90px;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: black;
+            color: whitesmoke;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="parent">
+
+        <div id="top-child">
+
+            <div>
+                <div id="points">43</div>
+                <div> MIN </div>
+            </div>
+            <div>
+                <div id="point">2019</div>
+                <div> MAX </div>
+            </div>
+
+        </div>
+
+        <div id="middle-child">
+            <div> SCORE </div>
+            <div id="display"> # </div>
+        </div>
+
+        <div id="bottom-child">
+            <div id="green" > 1 </div>
+            <div> 2 </div>
+            <div id="green" > 3 </div>
+            <div> 4 </div>
+            <div> 5 </div>
+            <div> 6 </div>
+            <div id="green" > 7 </div>
+            <div> 8 </div>
+            <div id="green" > 9 </div>
+            <div id="empty">  </div>
+            <div> 0 </div>
+        </div>
+
+        <div id="enter"> ENTER </div>
+
+    </div>
+</body>
+<script>
+    let min=43;
+    let max=2019;
+
+    let current="";
+
+    let keypad=document.querySelectorAll("#bottom-child > div");
+    let display=document.querySelector("#display");
+    let enter=document.querySelector("#enter");
+    let minScore=document.querySelector('#points');
+    let maxScore=document.querySelector('#point');
+
+    for(let i=0; i<keypad.length;i++){
+        keypad[i].addEventListener('click', function(){
+            current+=keypad[i].innerText;
+            display.innerText=current;
+        })
+    }
+
+    enter.addEventListener('click', function(){
+        display.innerText=null;
+
+    if(Number(current)<min){
+        min=current;
+        minScore.innerText=min;
+        // min=43;
+        current="";
+    }
+    if(Number(current)>max){
+        max=current
+        maxScore.innerText=max;
+        // max=2019;
+        current='';
+    }        
+    })
+
+</script>
+</html>
