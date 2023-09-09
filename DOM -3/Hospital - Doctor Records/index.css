@@ -1,0 +1,42 @@
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+table td{
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  background-color: rgb(12, 97, 153);
+  color: white;
+}
+div{
+  display: flex;
+}
+h1{
+  text-align: center;
+  color: rgb(12, 97, 153);
+  text-decoration: underline;
+}
+form{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  display: grid;
+  height: 500px;
+
+}
+#mbl ~ input{
+  background-color: rgb(12, 97, 153);
+  color: white;
+  border-radius: 50px;
+}
