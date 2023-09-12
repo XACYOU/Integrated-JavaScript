@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    let active=false;
+    function BankAccount(accNum,name,type,balance){
+        this.accNum=accNum;
+        this.name=name;
+        this.type=type;
+        this.balance=balance;
+        this.deposit=function(amount){
+            if(amount>0){
+                this.balance += amount;
+                active=true;
+            }else{
+                console.log("Invalid deposit amount");
+            }
+        }
+        this.withdraw=function(amount){
+            if(this.balance>amount&&amount>0){
+                this.balance -= amount;
+                active=true;
+            }else console.log("Invalid withdrawal amount or Insufficient funds");
+        }
+        this.active=function(){
+           if (active ==true) console.log("Account is Active");
+           else console.log("Account is Inactive");
+        }
+    }
+
+    let account1 = new BankAccount(1,'xyz','savings',4000);
+    let account2 = new BankAccount(2,'abc','savings',2000);
+    let account3 = new BankAccount(3,'lmn','savings',3000);
+    let account4 = new BankAccount(4,'pqr','savings',1000);
+
+    account1.deposit(200)
+    account1.withdraw(1000)
+    account1.active();
+
+    account2.active();
+
+    account3.deposit(200)
+    account3.withdraw(1000)
+    account3.active();
+
+    account4.deposit(200)
+    account4.withdraw(1000)
+    account4.active();
+
+    console.log(account1);
+    console.log(account2);
+    console.log(account3);
+    console.log(account4);
+
+    let arr=[account1,account2,account3,account4];
+
+    function getTotalBalance(arr) {
+
+        let total=0;
+        for(let i=0;i<arr.length;i++){
+            if(active==true){
+                total+=arr[i].balance;
+            }
+        }
+        return (total);
+    }    
+    console.log(getTotalBalance(arr));
+</script>
+</html>
