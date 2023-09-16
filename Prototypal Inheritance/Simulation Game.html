@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+
+    function Vehicle(brand,model,speed,fuelType){
+        this.brand = brand;
+        this.model = model;
+        this.speed = speed;
+        this.fuelType =fuelType;
+    }
+
+    Vehicle.prototype.accelerate=function(increase){
+        if (increase==null ){
+            
+        }else{
+        this.speed += increase;
+        console.log(`${this.model} speed increased to ${this.speed} by ${increase}.`);
+        }
+    }
+    Vehicle.prototype.brake=function(decreased){
+        if (decreased==null ){
+            
+        }else{
+            this.speed -= decreased;
+        console.log(`${this.model} speed decreased to ${this.speed} by ${decreased}.`);
+        }
+    }
+    Vehicle.prototype.refuel=function(){
+        console.log(`${this.model} is refueling.`);
+    }
+    
+    
+    function car(brand,model,speed,fuelType,numberOfWheels){
+        Vehicle.call(this,brand,model,speed,fuelType);
+        this.numberOfWheels=numberOfWheels;
+    }
+
+    car.prototype=Vehicle.prototype;
+        car.prototype.honk=function(){
+        console.log(`${this.model} is honking.`);
+    }
+
+
+    function Airplane(brand,model,speed,fuelType,numberOfEngines,hasLandingGear){
+        Vehicle.call(this,brand,model,speed,fuelType)
+        this.numberOfEngines=numberOfEngines;
+        this.hasLandingGear=hasLandingGear;
+    }
+
+    Airplane.prototype=Vehicle.prototype;
+    Airplane.prototype.takeOff=function(){
+        console.log(`${this.model} is taking off.`);
+    }
+
+    let car1= new car('Mahindra','Thar',200,'diesel',4);
+    car1.accelerate(100);
+    car1.brake(50);
+    car1.refuel();
+ 
+    let plane1= new Airplane('Air India','X70',200,'Liquid Hydrogen',2,true);
+    plane1.accelerate(200);
+    plane1.brake(50);
+    plane1.refuel();
+
+
+</script>
+</html>
