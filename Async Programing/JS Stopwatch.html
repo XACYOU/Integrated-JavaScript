@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: auto;
+            text-align: center;
+            font-size: larger;
+            border-radius: 20px;
+            border: 0px;
+        }
+        #display{
+            width: 400px;
+            height: 70px;
+            margin-top: 50px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background-color: aquamarine;
+            color: white;
+            font-size: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        button{
+            margin-top: 30px;
+            padding: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #start{
+            background-color: rgb(14, 226, 14);
+            color: white;
+        }
+        #pause{
+            background-color: red;
+            color: white;
+        }
+        #reset{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="display"> 0 </div>
+    <div>
+        <button id="start"> Start </button>
+        <button id="pause"> Pause </button>
+        <button id="reset"> Reset </button>
+    </div>
+</body>
+
+<script>
+    let display=document.getElementById("display");
+    let start=document.getElementById("start");
+    let pause=document.getElementById("pause");
+    let reset=document.getElementById("reset");
+
+    let seconds=0;
+    let timer=null;
+    let running=false;
+    let stop=false;
+
+    start.addEventListener("click",function(){
+
+        if(running==false){
+        timer=setInterval(update,1000);
+        running=true;
+        }
+    })
+
+    pause.addEventListener("click",function(){
+
+        clearInterval(timer);
+        running=false;
+        
+    })
+
+    reset.addEventListener("click",function(){
+
+        clearInterval(timer);
+        seconds=0;
+        display.textContent=seconds;
+        running=false;
+
+    })    
+
+    function update(){
+        seconds++
+        display.textContent=seconds;
+    }
+</script>
+</html>
