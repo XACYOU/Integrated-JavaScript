@@ -59,11 +59,15 @@
     let reset=document.getElementById("reset");
 
     let seconds=0;
+    let minutes=0;
+    let hours=0;
     let timer=null;
     let running=false;
-    let stop=false;
+    let first=false;
+    let two=false;
 
     start.addEventListener("click",function(){
+
 
         if(running==false){
         timer=setInterval(update,1000);
@@ -86,10 +90,51 @@
         running=false;
 
     })    
-
     function update(){
-        seconds++
-        display.textContent=seconds;
+
+        if (seconds<60){
+            if(first==false){
+            seconds++
+            if (seconds<10){
+                display.textContent='0'+seconds;
+            }else{
+                display.textContent=seconds;
+            }
+            }
+        }else if (seconds=60){
+            seconds=0;
+            minutes++;
+            first=true;
+        }
+
+        if(first==true){
+            seconds++;
+            if (seconds<10){
+                display.textContent=`${minutes}:0${seconds}`;
+            }else{
+                display.textContent=`${minutes}:${seconds}`;
+            }
+        }
+        
+        if (minutes==60){
+            if(two==false){
+            seconds=0;
+            minutes=0;
+            hours++;
+            display.textContent=`${hours}:${minutes}:${seconds}`;
+            two=true;
+        }
+        }
+
+        if(two==true){
+            if(minutes==60){
+                minutes=0;
+                hours++;
+                display.textContent=`${hours}:${minutes}:${seconds}`;                
+            }else{
+            display.textContent=`${hours}:${minutes}:${seconds}`;
+            }
+        }
     }
 </script>
 </html>
