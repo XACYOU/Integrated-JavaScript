@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: black;
+        }
+        div{
+            text-align: center;
+        }
+        img{
+            width: 700px;
+            height: 400px;
+            margin: 40px auto;
+            background-color: rgb(132, 179, 221);
+            border-radius: 50px;
+        }
+        #img~div{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+        button{
+            font-size: 30px;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+            background-color: aqua;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="img">
+        <img alt="">
+    </div>
+
+    <div>
+        <button onclick="start()"> Start </button>
+        <button onclick="stop()"> Stop </button>
+        <button onclick="left()"> Left </button>
+        <button onclick="right()"> Right </button>
+    </div>
+</body>
+<script>
+
+    let imgLink=[
+    'https://www.kasandbox.org/programming-images/avatars/spunky-sam.png',
+    'https://www.kasandbox.org/programming-images/avatars/spunky-sam-green.png',
+    'https://www.kasandbox.org/programming-images/avatars/purple-pi.png',
+    'https://www.kasandbox.org/programming-images/avatars/purple-pi-teal.png',
+    'https://www.kasandbox.org/programming-images/avatars/purple-pi-pink.png',
+    'https://www.kasandbox.org/programming-images/avatars/primosaur-ultimate.png',
+    'https://www.kasandbox.org/programming-images/avatars/primosaur-tree.png',
+    'https://www.kasandbox.org/programming-images/avatars/primosaur-sapling.png',
+    'https://www.kasandbox.org/programming-images/avatars/orange-juice-squid.png',
+    'https://www.kasandbox.org/programming-images/avatars/old-spice-man.png',
+    'https://www.kasandbox.org/programming-images/avatars/old-spice-man-blue.png',
+    'https://www.kasandbox.org/programming-images/avatars/mr-pants.png',
+    'https://www.kasandbox.org/programming-images/avatars/mr-pants-purple.png',
+    'https://www.kasandbox.org/programming-images/avatars/mr-pants-green.png',
+    'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+    'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+    'https://www.kasandbox.org/programming-images/avatars/marcimus-purple.png',
+    'https://www.kasandbox.org/programming-images/avatars/marcimus-orange.png',
+    'https://www.kasandbox.org/programming-images/avatars/duskpin-ultimate.png',
+    'https://www.kasandbox.org/programming-images/avatars/duskpin-tree.png'
+    ]
+
+    let img=document.querySelector('img');
+    let i=0;
+    let clicked=false;
+    let slide=null;
+
+    function start(){
+        if(clicked==false){
+            slide=setInterval(update,1000);
+            clicked=true;
+        }
+    }
+
+    function stop(){
+        if(clicked==true){
+            clearInterval(slide);
+            clicked=false;
+        }
+    }
+
+    function left(){
+        clearInterval(slide);
+            if(i<0){
+                i=19;
+                img.src=imgLink[i];
+                console.log(i);
+                i--;
+            }else if(i>=0&&i<20){
+                img.src=imgLink[i];
+                console.log(i);
+                i--;
+            }
+    }
+
+    function right(){
+        clearInterval(slide);
+                if(i>=20){
+                i=0;
+                img.src=imgLink[i];
+                console.log(i);
+                i++;
+            }
+            if(i>=0){
+                img.src=imgLink[i];
+                console.log(i);
+                i++;
+            }
+    }
+
+    function update(){
+
+        if(i<20){
+            img.src=imgLink[i];
+            console.log(i);
+            i++;
+        }else if(i>=20){
+            i=0
+        }
+    }
+
+</script>
+</html>
