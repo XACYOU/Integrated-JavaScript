@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        #userContainer{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        .user-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+        }
+
+        .user-card img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>User Information</h1>
+    <button id="fetchUsersBtn">Fetch Users</button>
+    <div id="userContainer"></div>
+    <script src="index.js"></script>
+</body>
+</html>
