@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather 1</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div id="navbar">
+        <div id="navLeft">
+            <input id="place" type="text" placeholder="Enter your city">
+            <button id="btn"> Search </button>
+        </div>
+        <div id="navRight">
+            <div id="navLeftDegree">
+                <p> Different Weather?</p>
+            </div>
+            <div id="navRightDegree">
+                <p> Metric: °C, m/s</p>
+                <p> Imperial: °F, mph</p>    
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="contLeft">
+            <div id="top">
+                <p> Aug 4, 11:51am</p>
+                <h3 id="placeName"> London, GB</h3>    
+            </div>
+            <div id="mid">
+                <img id="weatherIcon" src="https://e7.pngegg.com/pngimages/35/52/png-clipart-weather-forecasting-computer-icons-sunny-text-weather-forecasting-thumbnail.png">
+                <h3 id="mid_temp"> 23°C</h3>
+            </div>
+            <div id="low">
+                <p id="condition"> Feels like 22°C. Scattered clouds. Gentle Breeze</p>
+            </div>
+            <div id="details">
+                <div id="leftLine"></div>
+                <div id="rightDetails">
+                    <p id="minTemp"> Min-Temp </p>
+                    <p id="maxTemp"> Max-Temp </p>
+                    <p id="Wind"> Wind </p>
+                    <p id="Humidity"> Humidity </p>
+                    <p id="Sunrise"> Sunrise </p>
+                    <p id="Sunset"> Sunset </p>
+                </div>
+            </div>
+        </div>
+        <div id="contRight">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="720" height="500" id="gmap_canvas" 
+                    src="https://maps.google.com/maps?q=London,%20GB&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                    </iframe>
+                    <a href="https://embedgooglemap.net/124/">123movies</a>
+                    <br>
+                    <a href="https://www.embedgooglemap.net"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="weather.js"></script>
+</html>
