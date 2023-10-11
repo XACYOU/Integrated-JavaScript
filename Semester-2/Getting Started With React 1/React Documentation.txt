@@ -1,0 +1,32 @@
+Q1:- What is React?
+A1:- React is an open-source library based on JavaScript for building UI.
+
+Q2:- Who made React?
+A2:- React was initially developed by one of the Facebook's Software Engineer named Jordan Walke but later it was open-sourced in 2013.
+
+Q3:- What is Babel?
+A3:- Since JSX can't be understand by JavaScript directly so Babel work as a translator and turns the code into something that browsers can understand.
+
+Q4:- How does Babel convert html code in React into valid code?
+A4:- Babel can't convert HTML Code directly into React Code. It helps with converting JSX into valid JavaScript code that can be executed in a browser.
+
+Q5:- What is ReactDOM used for? Write an example?
+A5:- ReactDOM acts as a bridge between React elements and actual DOM elements. It converts React elements into real DOM elements that get rendered on the page.
+
+Q6:- What are the packages that you need to import for react to work with?
+A6:- React package and ReactDom package.
+
+Q7:- How do you add react to a web application?
+A7:- 
+(a) npx create-react-app your-app-name
+(b) cd your-app-name
+(c) npm start
+
+Q8:- What is React.createElement?
+A8:- It is a method that doesn't directly create a DOM element. Instead, it describes what the UI should look like using these elements.
+
+Q9:- What are the three properties that createElement accept?
+A9:- Type,Properties,Children.
+
+Q10:- What is the meaning of render and root?
+A10:- In React render means making React components visible on the web page. Root refers to specific HTML elements in web page where React elements will be attached or rendered.
