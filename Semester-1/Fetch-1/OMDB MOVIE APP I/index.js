@@ -18,6 +18,7 @@ btn.addEventListener('click', function(){
         .then((data)=>{
 
             if(data.Response=='True'){
+            display.innerHTML=null;
             data.Search.forEach(ele => {
                 
                 let displayCont=document.createElement('div');

@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+h1 {
+    color: #333;
+}
+#movieInput {
+    width: 80%;
+    padding: 10px;
+}
+#movieInfo {
+    width: 80%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+.display-cont{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;    
+}
