@@ -6,6 +6,43 @@
     <title>Document</title>
 </head>
 <body>
-    
 </body>
+<script>
+    function Automobile(color,display,engine,wheel) {
+        this.color = color;
+        this.display = display;
+        this.engine = engine;
+        this.wheel = wheel;
+    }
+    Automobile.prototype.honk=()=>{
+        console.log("beep beep...");
+    }
+    Automobile.prototype.engineOn=()=>{
+        console.log("Engine Started");
+    }
+    Automobile.prototype.engineOff=()=>{
+        console.log("Engine Stopped");
+    }
+    Automobile.prototype.headlight=()=>{
+        console.log("Headlight On");
+    }
+
+    function Jaguar(color,display,engine,wheel,design){
+        Automobile.call(this,color,display,engine,wheel)
+        this.design=design;
+    }
+    Object.setPrototypeOf(Jaguar.prototype,Automobile.prototype);
+    Jaguar.prototype.openRoof=()=>{
+        console.log("Sun Roof open");
+    }
+
+    let Jaguar_I_pace=new Jaguar("White","32 Inch","V4","Broad","Sleek");
+
+    console.log(Jaguar_I_pace);
+    Jaguar_I_pace.honk();
+    Jaguar_I_pace.openRoof();
+    Jaguar_I_pace.engineOn();
+    Jaguar_I_pace.headlight();
+    Jaguar_I_pace.engineOff();
+</script>
 </html>

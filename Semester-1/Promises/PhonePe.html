@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont{
+            width: 100%;
+            height: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        #display{
+            width: 650px;
+            height: 800px;
+            background-color: rgb(236, 215, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid;
+        }
+        #top{
+            width: 100%;
+            height: 40px;
+            background-color: rgb(108, 15, 195);
+        }
+        #amount{
+            margin-top: -250px;
+            display: flex;
+            justify-content: center;
+        }
+        input{
+            width: 500px;
+            height: 150px;
+            margin:auto;
+            border: 0px;;
+            background-color: rgb(203, 159, 242);
+            font-size: 70px;
+            text-align: center;
+        }
+
+        button{
+            width: 100%;
+            height: 70px;
+            font-size: xx-large;
+            background-color: rgb(108, 15, 195);
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <div id="display">
+            <div id="top"></div>
+            <div id="payment">
+                <input id="amount" type="number" placeholder="Enter Amount"/>
+            </div>
+            <div id="bottom">
+                <button> Make Payment</button>
+            </div>
+        </div>
+    </div>
+<script>
+    let btn=document.querySelector('button');
+    let contDiv=document.createElement('div');
+    let img=document.createElement('img');
+    let p=document.createElement('p');
+    let newDiv=document.createElement('div');
+    let display;
+    let amount;
+
+    btn.addEventListener('click',(e)=>{
+        e.preventDefault();
+
+        amount=document.querySelector('#amount').value;
+        display=document.querySelector('#display');
+
+        display.innerHTML=null;
+        display.style.cssText=null;
+
+        let a=processPayment(paymentSuccessUI, paymentRejectUI,paymentPendingUI)
+        a.then(paymentSuccessUI).catch(paymentRejectUI)
+    })
+
+    function processPayment( paymentSuccessUI,paymentRejectUI,paymentPendingUI){
+        return new Promise((resolve,reject)=>{
+            paymentPendingUI();
+            setTimeout(()=>{
+                if(Math.random()>0.5){
+                    resolve()
+                }else{
+                    reject()
+                }
+            },1000)
+        })
+    }
+
+    function paymentSuccessUI(){
+        img.src="https://static.vecteezy.com/system/resources/thumbnails/025/210/762/small/check-mark-icon-transparent-background-checkmark-icon-approved-symbol-confirmation-sign-design-elements-checklist-positive-thinking-sign-correct-answer-verified-badge-flat-icon-png.png"
+        img.alt="success icon"
+        p.textContent=`Your donation of ₹${amount} is successful`
+        style()
+        display.append(img,p)
+    }
+
+    function paymentRejectUI(){
+        img.src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061131_640.png"
+        img.alt="decline icon"
+        p.innerText=`Your payment of ₹${amount} is declined`
+        style()
+        display.append(img,p)
+
+    }
+
+    function paymentPendingUI(){
+        img.src="https://www.kindpng.com/picc/m/171-1712785_transparent-yellow-circle-png-png-download.png"
+        img.alt="pending icon"
+        p.textContent=`Your payment is Processing`
+        style()
+        display.append(img,p)
+    }
+
+    function style(){
+        img.style.cssText='width: 500px; height: 500px; margin:auto; background:transparent;'
+        display.style.cssText='background-color:rgb(211,211,211);display:flex; justify-content: space-between;'
+        p.style.cssText='font-size:40px; font-weight:bolder; text-align:center'
+    }
+
+</script>
+</html>
